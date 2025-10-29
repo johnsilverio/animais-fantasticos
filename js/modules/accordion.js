@@ -19,4 +19,3 @@ export default function initAccordionFaq() {
     item.addEventListener("click", activeClassAccordion);
   });
 }
-  
