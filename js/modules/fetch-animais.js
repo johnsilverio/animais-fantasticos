@@ -26,5 +26,5 @@ export default function initFetchAnimais() {
 		return div;
 	}
 
-	fetchAnimais(new URL("./animaisApi.json", import.meta.url));
+	fetchAnimais(new URL("../animaisApi.json", import.meta.url));
 }
