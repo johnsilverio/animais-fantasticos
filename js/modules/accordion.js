@@ -1,21 +1,27 @@
 /**
  * Initializes Accordion from the FAQ section.
  */
-export default function initAccordionFaq() {
-  const accordionList = document.querySelectorAll("[data-anime='accordion'] dt");
-  if (!accordionList.length) return;
+export default class Accordion {
+  constructor(list) {
+    this.accordionList = document.querySelectorAll(list);
+    this.activeClass = 'active';
+  }
 
-  const activeClass = "active";
-
-  accordionList[0].classList.add(activeClass);
-  accordionList[0].nextElementSibling.classList.add(activeClass);
-
-  const activeClassAccordion = function (e) {
-    this.classList.toggle(activeClass);
-    this.nextElementSibling.classList.toggle(activeClass);
+  toggleAccordion(item) {
+    item.classList.toggle(this.activeClass);
+    item.nextElementSibling.classList.toggle(this.activeClass);
   };
 
-  accordionList.forEach((item) => {
-    item.addEventListener("click", activeClassAccordion);
-  });
+  addAccordionEvent() {
+    this.accordionList.forEach((item) => {
+      item.addEventListener("click", () => this.toggleAccordion(item));
+    })
+  };
+
+  init() {
+    if (this.accordionList.length) {
+      this.toggleAccordion(this.accordionList[0]);
+      this.addAccordionEvent();
+    }
+  }
 }
