@@ -19,5 +19,8 @@
     "eslint": "^9.38.0",
     "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
   }
 }
